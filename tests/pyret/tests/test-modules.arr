@@ -481,3 +481,33 @@ end
   errs is%(error-with) "j"
 end
 
+check: 
+  m = make-fresh-module-testing-context() 
+  m.save-module("main.arr", ```
+provide:
+  data Foo
+end
+
+type Foo = {}
+```)
+  
+  errs = m.compile-error-messages("main.arr")
+  errs is%(error-with) "Foo"
+end
+
+check: 
+  m = make-fresh-module-testing-context() 
+  m.save-module("main.arr", ```
+provide:
+  data Foo
+end
+
+data Bar:
+  | variant
+end
+```)
+  
+  errs = m.compile-error-messages("main.arr")
+  errs is%(error-with) "Foo"
+end
+
