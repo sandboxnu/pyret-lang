@@ -481,6 +481,7 @@ end
   errs is%(error-with) "j"
 end
 
+# Associated issue: https://github.com/brownplt/pyret-lang/issues/1790
 check: 
   m = make-fresh-module-testing-context() 
   m.save-module("main.arr", ```
@@ -495,6 +496,7 @@ type Foo = {}
   errs is%(error-with) "Foo"
 end
 
+# Associated issue: https://github.com/brownplt/pyret-lang/issues/1790
 check: 
   m = make-fresh-module-testing-context() 
   m.save-module("main.arr", ```
